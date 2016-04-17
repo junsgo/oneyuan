@@ -328,7 +328,7 @@ class cart extends base {
 			_setcookie("Cartlist",null);
 			_message($ok,G_WEB_PATH);
 		}
-		
+	
 		$check = $pay->go_pay($pay_checkbox);
 		
 		if($check === 'not_pay'){
@@ -375,6 +375,21 @@ class cart extends base {
 			_message("未选择支付平台");
 		}
 	}
+	
+	public function orderstatus() {
+		$out_trade_no = isset($_POST['code']) ? $_POST['code'] : "";
+		$this->db = System::load_sys_class('model');
+		$dingdaninfo = $this->db->GetOne("select * from `@#_member_addmoney_record` where `code` = '$out_trade_no'");
+		if (!$dingdaninfo) {
+			echo 0;exit;
+		} //没有该订单,失败
+		if ($dingdaninfo['status'] == '已付款') {
+			echo 1;exit;
+//	_message("购买成功",WEB_PATH."/member/home/userbuylist");
+		}
+		echo 0;exit;
+	}
+
 }
 
 

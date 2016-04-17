@@ -31,8 +31,8 @@ $(function(){
 		<h2>新用户注册</h2>
 		<ul class="login_process">
 			<li class="login_processCur"><b>1</b>填写注册信息</li>
-			<li class="login_arrow"></li>
-			<li><b>2</b>验证邮箱/验证手机</li>
+<!--			<li class="login_arrow"></li>
+			<li><b>2</b>验证邮箱/验证手机</li>-->
 			<li class="login_arrow"></li>
 			<li><b>3</b>完成注册</li>
 		</ul>

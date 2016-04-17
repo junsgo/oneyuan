@@ -51,7 +51,7 @@ class user extends memberbase {
 		 //var_dump($member);exit;
 		if(!$member)_message("参数不正确!");
 		if($member['mobilecode']==1){
-			_message("该账号验证成功",WEB_PATH."/mobile/mobile");
+			_message("注册成功",WEB_PATH."/mobile/user/login");
 		}
 		if($member['mobilecode']==-1){
 			$sendok = send_mobile_reg_code($name,$member['uid']);

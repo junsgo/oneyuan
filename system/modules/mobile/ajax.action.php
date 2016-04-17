@@ -321,7 +321,7 @@ class ajax extends base {
 		$time=time();
 		$decode = 0;
 		//邮箱验证 -1 代表未验证， 1 验证成功 都不等代表等待验证
-		$sql="INSERT INTO `@#_member`(`mobile`,password,img,emailcode,mobilecode,yaoqing,time)VALUES('$name','$pass','photo/member.jpg','-1','-1','$decode','$time')";
+		$sql="INSERT INTO `@#_member`(`mobile`,password,img,emailcode,mobilecode,yaoqing,time)VALUES('$name','$pass','photo/member.jpg','1','1','$decode','$time')";
 		if(!$name || $this->db->Query($sql)){
 			//header("location:".WEB_PATH."/mobile/user/".$regtype."check"."/"._encrypt($name));
 			//exit;

@@ -111,31 +111,31 @@ class user extends base {
 			$regtype=null;
 			if(_checkmobile($name)){
 				$regtype='mobile';
-				$cfg_mobile_type  = 'cfg_mobile_'.$config_mobile['cfg_mobile_on'];
-				$config_mobile = $config_mobile[$cfg_mobile_type];
-				if(empty($config_mobile['mid']) && empty($config_email['mpass'])){
-					_message("系统短信配置不正确!");
-				}		
+//				$cfg_mobile_type  = 'cfg_mobile_'.$config_mobile['cfg_mobile_on'];
+//				$config_mobile = $config_mobile[$cfg_mobile_type];
+//				if(empty($config_mobile['mid']) && empty($config_email['mpass'])){
+//					_message("系统短信配置不正确!");
+//				}		
 			}
 			if(_checkemail($name)){
 				$regtype='email';
-				if(empty($config_email['user']) && empty($config_email['pass'])){
-					_message("系统邮箱配置不正确!");
-				}				
+//				if(empty($config_email['user']) && empty($config_email['pass'])){
+//					_message("系统邮箱配置不正确!");
+//				}				
 			}		
 
 			//验证注册类型
-			$regtype_arr = System::load_app_config("user_reg_type","",ROUTE_M);	
-			$regtypes = 'reg_'.$regtype;	
- 			if(empty($regtype) || $regtype_arr[$regtypes] == 0){
-				if($regtype == 'email'){
-					_message("网站未开启邮箱注册!",null,3);
-				}
-				if($regtype == 'mobile'){
-					_message("网站未开启手机注册!",null,3);
-				}
-				_message("您注册的类型不正确!",null,3);
-			}
+//			$regtype_arr = System::load_app_config("user_reg_type","",ROUTE_M);	
+//			$regtypes = 'reg_'.$regtype;	
+// 			if(empty($regtype) || $regtype_arr[$regtypes] == 0){
+//				if($regtype == 'email'){
+//					_message("网站未开启邮箱注册!",null,3);
+//				}
+//				if($regtype == 'mobile'){
+//					_message("网站未开启手机注册!",null,3);
+//				}
+//				_message("您注册的类型不正确!",null,3);
+//			}
 			
 			
 			$member=$this->db->GetOne("SELECT * FROM `@#_member` WHERE `$regtype` = '$name' or `reg_key` = '$name' LIMIT 1");
@@ -172,11 +172,12 @@ class user extends base {
 				$day_time = strtotime(date("Y-m-d"));	
 				$member_reg_num = $this->db->GetNum("SELECT uid FROM `@#_member` where `time` > '$day_time' and `user_ip` LIKE '%$ip%'");								
 				if($member_reg_num >= $regconfig['reg_num']){
-					_message("您今日注册会员数已经达到上限！");
+				//	_message("您今日注册会员数已经达到上限！");
 				}
 			
 				$user_ip = _get_ip_dizhi();
-				$sql="INSERT INTO `@#_member`(password,user_ip,img,emailcode,mobilecode,reg_key,yaoqing,time)VALUES('$userpassword','$user_ip','photo/member.jpg','-1','-1','$name','$decode','$time')";
+				$sql="INSERT INTO `@#_member`({$regtype},password,user_ip,img,emailcode,mobilecode,reg_key,yaoqing,time)VALUES('{$name}','$userpassword','$user_ip','photo/member.jpg','1','1','$name','$decode','$time')";
+		
 				$sqlreg = $this->db->Query($sql);
 				$check_code  = serialize(array("name"=>$name,"time"=>$time));
 				$check_code  = _encrypt($check_code,"ENCODE",'',3600*24);			
@@ -187,7 +188,7 @@ class user extends base {
 				$check_code  = _encrypt($check_code,"ENCODE",'',3600*24);
 			}
 			if($sqlreg){		
-				header("location:".WEB_PATH."/member/user/".$regtype."check"."/".$check_code);
+				_message("恭喜您,验证成功!",WEB_PATH."/login");
 				exit;
 			}else{
 				_message("注册失败!",WEB_PATH.'/register');
