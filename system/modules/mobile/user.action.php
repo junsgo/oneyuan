@@ -31,7 +31,6 @@ class user extends memberbase {
 	//返回注册页面
 	public function register(){
 	  $webname=$this->_cfg['web_name'];
-	  echo "sadf";exit;
 		include templates("mobile/user","register");
 	}
 

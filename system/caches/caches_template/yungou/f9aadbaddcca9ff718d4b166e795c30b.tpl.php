@@ -65,7 +65,7 @@
 		<div class="head_mid_bg">			
 			<h1 class="logo_1yyg">
 				<a class="logo_1yyg_img" href="<?php echo G_WEB_PATH; ?>/" title="<?php echo _cfg('web_name'); ?>">
-					<img src="<?php echo G_UPLOAD_PATH; ?>/<?php echo Getlogo(); ?>"/>
+					<img width="115" src="<?php echo G_UPLOAD_PATH; ?>/<?php echo Getlogo(); ?>"/>
 				</a>
 			</h1>			
 			<div class="head_number">

@@ -20,9 +20,10 @@
 				'watermark_off' => '0',
 				'watermark_condition' => array('width'=>'100','height'=>"100"),
 				'watermark_type' => 'text',
-				'watermark_text' => array('text'=>"yungoucms.com",'color'=>"#ff0000",'size'=>"15",'font'=>""),
+				'watermark_text' => array('text'=>"vpengran.com",'color'=>"#ff0000",'size'=>"15",'font'=>"/vagrant_data/oneyuan/system/modules/api/lib/"),
 				'watermark_image' => 'banner/20141205/93445116772218.jpg',
 				'watermark_position' => 'c',
 				'watermark_apache' => '50',
 				'watermark_good' => '80',
 			);
+			?>

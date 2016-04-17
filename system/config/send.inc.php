@@ -1,1 +1,1 @@
-<?php return array('type'=>'3'); ?>
+<?php return array('type'=>'1'); ?>

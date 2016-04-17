@@ -1,10 +1,10 @@
 <?php 
  defined('G_IN_SYSTEM') or exit('No permission resources.'); 
 return array( 
-'web_name' => '云购 — 惊喜无线',//网站名
-'web_key' => '是一个云购系统',//网站关键字
-'web_des' => '是一个云购系统',//网站介绍
-'web_path' => 'http://127.0.0.1',//网站地址
+'web_name' => '微怦然一元购',//网站名
+'web_key' => '微怦然一元购',//网站关键字
+'web_des' => '离梦想最近的地方！',//网站介绍
+'web_path' => 'vpengran.com',//网站地址
 'templates_edit' => '1',//是否允许在线编辑模板
 'templates_name' => 'yungou',//当前模板方案
 'charset' => 'utf-8',//网站字符集
@@ -19,12 +19,12 @@ return array(
 'index_name' => '?',//隐藏首页文件名
 'expstr' => '/',//url分隔符号
 'admindir' => 'admin',//后台管理文件夹
-'qq' => '123456',//qq
-'cell' => '000-123456',//联系电话
-'web_logo' => 'banner/logo.png',//logo
-'web_copyright' => 'Copyright © 2011 - 2013, 版权所有 粤ICP备09213115号-12',//版权
-'web_name_two' => '云购',//短网站名
-'qq_qun' => '123456|456789',//QQ群
+'qq' => '84835740',//qq
+'cell' => '',//联系电话
+'web_logo' => 'banner/20160417/77556284875923.png',//logo
+'web_copyright' => 'Copyright © 2015 - 2016, 版权所有 京ICP备15019831号-1',//版权
+'web_name_two' => '一元购',//短网站名
+'qq_qun' => '126082581',//QQ群
 'goods_end_time' => '30',//开奖动画秒数(单位秒)
 ); 
  ?>
